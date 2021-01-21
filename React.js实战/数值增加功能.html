@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyButton</title>
+    <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+  </body>
+  <script type="text/babel">
+    class AddNumber extends React.Component {
+      constructor(props) {
+        //构造函数，初始化state
+        super(props)
+        this.state = { number: 1 }
+        this.addNum = this.addNum.bind(this) //绑定addNum()方法
+      }
+      addNum() {
+        //数值增加操作
+        this.setState({
+          number: this.state.number + 1,
+        })
+      }
+      render() {
+        return (
+          <div>
+            <p>{this.state.number}</p>
+            <button onClick={this.addNum}>增加器</button>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<AddNumber />, document.getElementById('example'))
+  </script>
+</html>

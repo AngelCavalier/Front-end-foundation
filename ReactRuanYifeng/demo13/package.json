@@ -1,0 +1,19 @@
+{
+  "name": "demo13",
+  "version": "1.0.0",
+  "description": "React Server-side rendering",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "babel src --out-dir build"
+  },
+  "author": "AngelCavalier",
+  "license": "ISC",
+  "private": "true",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3"
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录界面</title>
+    <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+  </head>
+  <style>
+    .loginStyle {
+      width: 400px;
+      height: 250px;
+      background: #fff;
+      margin: 200px auto;
+      position: relative;
+    }
+    .hStyle {
+      position: absolute;
+      left: 95px;
+      top: -40px;
+      padding: 0px;
+      margin: 50px;
+    }
+    .pStyle {
+      text-align: center;
+    }
+    .userStyle {
+      width: 200px;
+      height: 30px;
+      border: solid #ccc 1px;
+      border-radius: 3px;
+      padding-left: 32px;
+      margin-top: 50px;
+    }
+    .pwdStyle {
+      width: 200px;
+      height: 30px;
+      border: solid #ccc 1px;
+      border-radius: 3px;
+      padding-left: 32px;
+      margin-top: 5px;
+    }
+    .buttonStyle {
+      width: 232px;
+      height: 30px;
+      background: #e9e9e9;
+      border: solid #ccc 1px;
+      border-radius: 3px;
+      /* text-align: center; */
+    }
+  </style>
+  <body style="background-color: #cccccc">
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    class Login extends React.Component {
+      constructor(props) {
+        super(props)
+        this.login = this.login.bind(this)
+        this.check = this.check.bind(this)
+        this.state = {
+          //默认用户名和密码都为admin
+          userName: 'admin',
+          passWord: 'admin',
+        }
+      }
+      login() {
+        if (
+          this.refs.user.value === this.state.userName &&
+          this.refs.pwd.value === this.state.passWord
+        )
+          //判断用户输入的用户名和密码是否都为admin
+          alert('登录成功')
+        else alert('登录失败')
+      }
+      check() {
+        if (this.refs.user.value.length > 10)
+          //检测用户是否超过10个字符
+          alert('超出10个字符，请重新输入')
+      }
+      render() {
+        return (
+          <div class="loginStyle">
+            <h1 class="hStyle">登录界面</h1>
+            <div>
+              <p class="pStyle">
+                <input
+                  type="text"
+                  class="userStyle"
+                  placeholder="用户名"
+                  ref="user"
+                  onChange={this.check}
+                ></input>
+              </p>
+              <p class="pStyle">
+                <input
+                  type="password"
+                  class="pwdStyle"
+                  placeholder="密码"
+                  ref="pwd"
+                ></input>
+              </p>
+              <p class="pStyle">
+                <button class="buttonStyle" onClick={this.login}>
+                  登录
+                </button>
+              </p>
+            </div>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<Login />, document.getElementById('root'))
+  </script>
+</html>
