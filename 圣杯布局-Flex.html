@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圣杯布局</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+    }
+    .HolyGrail {
+      display: flex;
+      min-height: 100vh; /*撑满整个屏幕*/
+      flex-direction: column; /* 头、中部、脚纵向显示 */
+    }
+
+    header,
+    footer {
+      flex: 1;
+      flex: 0 0 60px; /* 头、脚尺寸固定，不放大、不缩小 */
+
+      line-height: 60px;
+      text-align: center;
+      background: rgba(29, 27, 27, 0.726);
+      color: white;
+    }
+
+    .HolyGrail-body {
+      display: flex;
+      flex: 1;
+    }
+    .HolyGrail-content {
+      flex: 1;
+      background: rgb(206, 201, 201);
+    }
+    .HolyGrail-nav,
+    .HolyGrail-ads {
+      /* 两个边栏的宽度设为12em,定宽 */
+      flex: 0 0 12em;
+    }
+    .HolyGrail-nav {
+      /* 导航放到最左边 */
+      order: -1;
+      background: rgba(95, 179, 235, 0.972);
+    }
+    .HolyGrail-ads {
+      background: rgb(231, 105, 2);
+    }
+  </style>
+  <body class="HolyGrail">
+    <header>#header</header>
+    <div class="HolyGrail-body">
+      <main class="HolyGrail-content">#center</main>
+      <nav class="HolyGrail-nav">#left</nav>
+      <aside class="HolyGrail-ads">#right</aside>
+    </div>
+    <footer>#footer</footer>
+  </body>
+</html>
