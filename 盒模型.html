@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒模型</title>
+  </head>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      color: red;
+      text-align: center;
+      background-color: rgb(11, 203, 236);
+      margin: 20px;
+    }
+    #content-box {
+      padding: 20px;
+      border: solid 20px rgba(229, 255, 0, 0.836);
+    }
+    #border-box {
+      box-sizing: border-box;
+      border: solid 20px rgba(229, 255, 0, 0.836);
+      padding: 40px;
+    }
+  </style>
+  <body>
+    <div id="content-box">W3C标准盒模型</div>
+    <div id="border-box">IE怪异盒模型</div>
+  </body>
+</html>
