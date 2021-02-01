@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三类隐藏</title>
+  </head>
+  <style>
+    #one {
+      display: none;
+      width: 500px;
+      height: 100px;
+      background-color: red;
+    }
+    #two {
+      visibility: hidden;
+      width: 500px;
+      height: 100px;
+      background-color: green;
+    }
+    #three {
+      opacity: 0;
+      width: 500px;
+      height: 100px;
+      background-color: black;
+    }
+    #column {
+      width: 250px;
+      height: 50px;
+      border: cornflowerblue solid 1px;
+    }
+    #two #column {
+      visibility: visible;
+    }
+  </style>
+  <body>
+    <div id="one">
+      <div id="column">1</div>
+    </div>
+    <div id="two">
+      <div id="column">2</div>
+    </div>
+    <div id="three">
+      <div id="column">3</div>
+    </div>
+  </body>
+</html>
