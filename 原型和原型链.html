@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    www
+  </body>
+  <script>
+    // Function.prototype.a = () => alert(1)
+    // Object.prototype.b = () => alert(2)
+    // function A() {}
+    // var a = new A()
+    // console.log(typeof A)
+    // console.log(typeof a)
+    // console.log(a.__proto__ === A.prototype)
+    // // a.a()
+    // a.b()
+
+    function Fn(num) {
+      this.x = this.y = num
+    }
+    Fn.prototype = {
+      x: 20,
+      sum: function () {
+        console.log(this.x)
+        console.log(this.y)
+        console.log(this.x + this.y)
+      },
+    }
+    let f = new Fn(10)
+    console.log(f.sum === Fn.prototype.sum)
+    f.sum()
+    Fn.prototype.sum()
+    console.log(f.constructor)
+  </script>
+</html>
