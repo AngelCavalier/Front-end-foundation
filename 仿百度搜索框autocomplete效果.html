@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>autoComplete</title>
+    <style></style>
+  </head>
+  <style>
+    .box {
+      position: relative;
+      margin: 100px auto;
+    }
+    input {
+      display: block;
+      margin: 0 auto;
+      height: 40px;
+      width: 400px;
+      font-size: 20px;
+      outline: none; /*去除点击后的边框*/
+      border: 1px solid #4e6ef2;
+      border-radius: 10px;
+    }
+    ul {
+      width: 400px;
+      margin: 0 auto;
+      padding-left: 5px;
+      list-style: none; /*去除li标签前面的·*/
+    }
+    li {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <input id="input" type="text" />
+      <ul id="ul"></ul>
+    </div>
+  </body>
+  <script>
+    const arr = [
+      'a',
+      'apple',
+      'abandon',
+      'bilibili',
+      'beep',
+      'before',
+      'become',
+      'being',
+      'highmaintains',
+      'by',
+      'bye',
+      'banana',
+    ];
+    let ul = document.getElementById('ul');
+    let input = document.getElementById('input');
+
+    input.addEventListener('input', function (e) {
+      let result = [];
+      let list = [];
+      let goal = e.target.value;
+      if (goal !== '') {
+        for (let value of arr) {
+          if (value.startsWith(goal)) {
+            //判断是否以输入的goal字符开头
+            result.push(value);
+          }
+        }
+        for (let value of result) {
+          list.push(`<li>${value}</li>`);
+        }
+        ul.innerHTML = list.join('');
+      } else {
+        ul.innerHTML = '';
+      }
+    });
+    ul.addEventListener('click', function (e) {
+      console.log(e);
+      input.value = e.target.innerHTML;
+      ul.innerHTML = '';
+    });
+  </script>
+</html>

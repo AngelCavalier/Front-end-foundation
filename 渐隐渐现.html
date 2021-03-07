@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>div渐隐渐现</title>
+  </head>
+  <style>
+    .show {
+      opacity: 1;
+      transition: all 1s ease-in;
+    }
+    .hide {
+      /* opacity: 0;
+      transition: all 1s ease-in; */
+      animation: hied-item 1s ease-in;
+    }
+    @keyframes hied-item {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <body>
+    <!-- 一个div块，设置其为两个效果，一个为渐隐效果，一个为点击空白处显示和隐藏 -->
+    <div class="show" id="toggole">hello</div>
+    <button>点击</button>
+  </body>
+  <script>
+    document.addEventListener('click', display);
+    function display() {
+      var obj = document.getElementById('toggole');
+      if (obj.style.opacity === '0') {
+        obj.style.opacity = '1';
+      } else {
+        obj.style.opacity = '0';
+      }
+    }
+
+    // function handleClick() {
+    //   if (document.getElementById('toggole').className === 'show') {
+    //     document.getElementById('toggole').className = 'hide';
+    //   } else {
+    //     document.getElementById('toggole').className = 'show';
+    //   }
+    // }
+  </script>
+</html>

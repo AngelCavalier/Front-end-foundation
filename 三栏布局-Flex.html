@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三栏布局</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+    }
+    .left,
+    .right,
+    .wrapper {
+      min-height: 100px;
+    }
+    .wrapper {
+      display: flex;
+    }
+    .left {
+      width: 300px;
+      background-color: thistle;
+    }
+    .right {
+      width: 300px;
+      background-color: thistle;
+    }
+    .center {
+      flex: 1;
+      background-color: turquoise;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <nav class="left"></nav>
+      <main class="center">
+        <h1>flex布局解决方案</h1>
+        <p>包裹这三个块的父元素display：flex;中间的元素flex：1;</p>
+      </main>
+      <aside class="right"></aside>
+    </div>
+  </body>
+</html>
