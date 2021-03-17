@@ -53,7 +53,7 @@
     ];
     let ul = document.getElementById('ul');
     let input = document.getElementById('input');
-
+    // input框输入autocomplete事件
     input.addEventListener('input', function (e) {
       let result = [];
       let list = [];
@@ -73,6 +73,7 @@
         ul.innerHTML = '';
       }
     });
+    // ul框点击事件
     ul.addEventListener('click', function (e) {
       console.log(e);
       input.value = e.target.innerHTML;

@@ -20,9 +20,30 @@ console.log(obj1.arr[0]);
 function deepClone(obj) {
   if (typeof obj !== 'object' || typeof obj == null) return;
   let result = obj instanceof Array ? [] : {};
-  for (const key in obj) {
+  for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       result[key] = deepClone(obj[key]); //递归调用
+    }
+  }
+  return result;
+}
+
+const obj3 = shallowCopy(obj1);
+obj3.address.city = 'shanghai';
+obj3.arr[0] = 'a1';
+console.log(obj1.address.city);
+console.log(obj1.arr[0]);
+
+/**
+ * 浅拷贝
+ * @param {Object} obj
+ */
+function shallowCopy(obj) {
+  if (typeof obj !== 'object' || typeof obj == null) return;
+  let result = obj instanceof Array ? [] : {};
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      result[key] = obj[key];
     }
   }
   return result;

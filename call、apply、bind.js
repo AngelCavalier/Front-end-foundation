@@ -15,18 +15,18 @@ Function.prototype.myCall = function (context, ...args) {
   return result;
 };
 
-// 测试
-// var foo = {
-//   value: 1,
-// };
+// 测试myCall
+var foo = {
+  value: 1,
+};
 
-// function bar(name, age) {
-//   console.log(name);
-//   console.log(age);
-//   console.log(this.value);
-// }
+function bar(name, age) {
+  console.log(name);
+  console.log(age);
+  console.log(this.value);
+}
 
-// bar.myCall(foo, 'kevin', 18);
+bar.myCall(foo, 'kevin', 18);
 
 /**
  * 手写apply
@@ -51,9 +51,22 @@ Function.prototype.myApply = function (context, args) {
  * @param  {...any} args
  */
 Function.prototype.myBind = function (...args) {
-  let self = this;
-  let context = args[0];
-  return function (...arg) {
-    self.call(context, ...args.slice(1).concat(arg));
+  // 获取当前上下文this
+  const context = args.shift();
+  // 获取fn1.myBind(..)中的fn1
+  const self = this;
+  return function () {
+    return self.apply(context, args);
   };
 };
+
+// 测试myBind
+function fn1(a, b, c) {
+  console.log('this', this);
+  console.log(a, b, c);
+  return 'this is fn1';
+}
+
+const fn2 = fn1.myBind({ x: 100 }, 10, 20, 30);
+const res = fn2();
+console.log(res);

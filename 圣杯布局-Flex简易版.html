@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圣杯布局简易版</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      min-height: 130px;
+    }
+    .main {
+      flex: 1;
+      background-color: #999;
+    }
+    .left {
+      order: -1;
+      flex-basis: 200px;
+      background-color: thistle;
+    }
+    .right {
+      flex-basis: 300px;
+      background-color: violet;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="main">main</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>
