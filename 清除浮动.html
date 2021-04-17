@@ -15,8 +15,12 @@
       height: 0;
     } */
     /* 使父元素称为BFC清除浮动*/
-    .container {
+    /*.container {
       overflow: hidden;
+    }*/
+    /* 空div标签设置clear：both */
+    .after-box {
+      clear: both;
     }
     .box {
       width: 100px;
@@ -28,6 +32,7 @@
   <body>
     <div class="container" style="background-color: thistle">
       <div class="box"></div>
+      <div class="after-box"></div>
     </div>
   </body>
 </html>

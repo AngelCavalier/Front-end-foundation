@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background: thistle;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script>
+    function dragFunc(id) {
+      var Box = document.getElementById(id);
+      //鼠标按下
+      Box.onmousedown = function (e) {
+        var e = e || window.event; //兼容ie浏览器
+        var disX = e.clientX - Box.offsetLeft; //鼠标点击坐标距离盒子左边缘的距离
+        var disY = e.clientY - Box.offsetTop; //鼠标点击坐标距离盒子上边缘的距离.
+        // 鼠标移动
+        document.onmousemove = function (e) {
+          var e = e || window.event;
+          var left = e.clientX - disX; //盒子左边缘距浏览器的左边框的距离
+          var top = e.clientY - disY; //盒子上边缘距浏览器的上边框的距离
+          if (left < 0) {
+            left = 0;
+          } else if (left > window.innerWidth - Box.offsetWidth) {
+            left = window.innerWidth - Box.offsetWidth;
+          }
+          if (top < 0) {
+            top = 0;
+          } else if (top > window.innerHeight - Box.offsetHeight) {
+            top = window.innerHeight - Box.offsetHeight;
+          }
+          Box.style.left = left + 'px';
+          Box.style.top = top + 'px';
+          Box.style.cursor = 'move';
+        };
+      };
+      //鼠标抬起
+      Box.onmouseup = function () {
+        document.onmousemove = null;
+        this.style.cursor = 'default';
+      };
+    }
+    dragFunc('box');
+  </script>
+</html>

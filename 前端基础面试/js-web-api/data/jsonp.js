@@ -1,3 +1,1 @@
-abc(
-    { name: 'xxx' }
-)
+abc({ name: 'react' });
