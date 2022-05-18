@@ -1,13 +1,15 @@
 // 防抖
 function debounce(fn, delay = 500) {
+  // 定义一个定时器，报错上一次的定时器
   let timer = null;
+  // 真正执行的函数
   return function () {
-    if (timer) {
-      clearTimeout(timer);
-    }
+    // 取消上一次的定时器
+    if (timer) clearTimeout(timer);
+    // 延迟执行
     timer = setTimeout(() => {
+      // 外部传入的真正要执行的函数
       fn.apply(this, arguments);
-      timer = null;
     }, delay);
   };
 }
@@ -16,9 +18,7 @@ function debounce(fn, delay = 500) {
 function throttle(fn, delay = 100) {
   let timer = null;
   return function () {
-    if (timer) {
-      return;
-    }
+    if (timer) return;
     timer = setTimeout(() => {
       fn.apply(this, arguments);
       timer = null;
@@ -26,18 +26,18 @@ function throttle(fn, delay = 100) {
   };
 }
 
-const input1 = document.getElementById('input1');
-const div1 = document.getElementById('div1');
+const input = document.getElementById('input');
+const div = document.getElementById('div');
 
-input1.addEventListener(
-  'keyup',
+input.addEventListener(
+  'input',
   debounce(function (e) {
     console.log(e.target);
-    console.log(input1.value);
+    console.log(input.value);
   }, 1000)
 );
 
-div1.addEventListener(
+div.addEventListener(
   'drag',
   throttle(function (e) {
     console.log(e.offsetX, e.offsetY);
