@@ -6,11 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>练习</title>
 </head>
+<style>
+
+</style>
 
 <body>
-  <input type="text" id="input1" />
-  <div id="div1" draggable="true">可拖拽<div>
+  <input type="text" id="input" />
+  <div id="div" draggable="true">可拖拽<div>
 </body>
-<script src="./练习.js"></script>
+<!-- <script src="./练习.js"></script> -->
+<!-- <script src='./柯里化.js'></script> -->
+<script src="./防抖和节流.js"></script>
+<script>
+
+  function run() {
+    console.log(1)
+    setTimeout(() => console.log(2), 0)
+    new Promise((resolve) => {
+      resolve()
+      console.log(3)
+    }).then(() => {
+      console.log(4)
+    })
+  }
+  run()
+</script>
 
 </html>
